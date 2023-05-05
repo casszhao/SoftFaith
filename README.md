@@ -53,12 +53,12 @@ python extract_rationales.py --dataset $dataset  \
 ```
 ```--extract_double``` is optional and is used to double $N$.
 
-## Evaluating Faithfulness
+## Evaluating Soft Faithfulness
 ```
 extracted_rationale_dir="extracted_rationales/"
 evaluation_dir="faithfulness_metrics/"
 
-python evaluate_masked.py --dataset $dataset \
+python evaluate_posthoc_zeroout.py --dataset $dataset \
                           --model_dir $model_dir \
                           --extracted_rationale_dir $extracted_rationale_dir \
                           --data_dir $data_dir \
@@ -66,7 +66,3 @@ python evaluate_masked.py --dataset $dataset \
                           --thresholder $thresh
 ```
 
-
-## Summarising results
-
-Following the evaluation you can use [src/generate_results/recreate_paper.py](https://github.com/GChrysostomou/instance-specific-rationale/blob/main/src/generate_results/recreate_paper.py) to recreate the tables and figures seen in the paper. 
